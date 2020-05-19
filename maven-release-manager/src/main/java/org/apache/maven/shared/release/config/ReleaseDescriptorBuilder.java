@@ -19,6 +19,7 @@ package org.apache.maven.shared.release.config;
  * under the License.
  */
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.maven.model.Scm;
@@ -58,7 +59,9 @@ public class ReleaseDescriptorBuilder
 
     public ReleaseDescriptorBuilder setActivateProfiles( List<String> profiles )
     {
-        releaseDescriptor.setActivateProfiles( profiles );
+        List<String> copy = new ArrayList<>();
+        copy.addAll( profiles );
+        releaseDescriptor.setActivateProfiles( copy );
         return this;
     }
 
